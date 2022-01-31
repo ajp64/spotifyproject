@@ -7,12 +7,12 @@ import cors from "cors";
 import logger from "morgan";
 import { getAllHistory, getSongById, getSongByArtist } from "./models/app.js";
 
-import {
-  routeAll,
-  routeByID,
-  routeByArtist,
-  routeReact,
-} from "./routes/users.js";
+// import {
+//   routeAll,
+//   routeByID,
+//   routeByArtist,
+//   routeReact,
+// } from "./routes/users.js";
 
 const app = express();
 
@@ -25,6 +25,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Have Node serve the files for our built React app
 // app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.get("/", function (req, res, next) {
+  res.render("index", { title: "Books" });
+});
 
 app.get("/history", async function (req, res, next) {
   const history = await getAllHistory();

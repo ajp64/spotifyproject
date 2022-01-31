@@ -1,43 +1,34 @@
 import express from "express";
-import path, { dirname } from "path";
 import { fileURLToPath } from "url";
+import path, { dirname } from "path";
 import cookieParser from "cookie-parser";
-import cors from "cors";
 import logger from "morgan";
 import { getAllHistory, getSongById, getSongByArtist } from "./models/app.js";
+import cors from "cors";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// import {
-//   routeAll,
-//   routeByID,
-//   routeByArtist,
-//   routeReact,
-// } from "./routes/users.js";
-
 const app = express();
 
-app.use(logger("dev"));
 app.use(cors());
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-// Have Node serve the files for our built React app
-// app.use(express.static(path.resolve(__dirname, "./client/build")));
-
+/** DO NOT CHANGE THIS ROUTE - it serves our front-end */
 app.get("/", function (req, res, next) {
   res.render("index", { title: "Books" });
 });
 
-app.get("/history", async function (req, res, next) {
-  const history = await getAllHistory();
-  res.json({ success: "true", payload: history });
+app.get("/all", async (req, res) => {
+  const all = await getAllHistory();
+  res.json({ success: true, message: "All Requests", payload: all });
 });
 
-app.get("/history/:id", async function (req, res, next) {
+app.get("/all/:id", async function (req, res, next) {
   console.log(req.params.id);
   const history = await getSongById(req.params.id);
   res.json({ success: "true", payload: history });
@@ -49,15 +40,6 @@ app.get("/artist", async function (req, res, next) {
   const history = await getSongByArtist(name.toLowerCase());
   res.json({ success: "true", payload: history });
 });
-
-// app.get("/", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "./client/public/", "index.html"));
-// });
-
-// app.use("/", routeReact);
-// app.use("/history", routeByArtist);
-// app.use("/history", routeAll);
-// app.use("/history", routeByID);
 
 app.use(function (req, res, next) {
   res

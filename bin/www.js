@@ -9,7 +9,7 @@ import http from "http";
 
 import app from "../app.js";
 
-const debug = debugLib("backend-practice:server");
+const debug = debugLib("national-project-week-juan-dan-ben-antony:server");
 
 /**
  * Get port from environment and store in Express.

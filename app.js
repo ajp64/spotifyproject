@@ -27,11 +27,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Have Node serve the files for our built React app
 // app.use(express.static(path.resolve(__dirname, "./client/build")));
-// app.get("/", function (req, res, next) {
-//   res.render("index", { title: "Books" });
-// });
 
-app.get("/", async function (req, res, next) {
+app.get("/", function (req, res, next) {
+  res.render("index", { title: "Books" });
+});
+
+app.get("/history", async function (req, res, next) {
   const history = await getAllHistory();
   res.json({ success: "true", payload: history });
 });

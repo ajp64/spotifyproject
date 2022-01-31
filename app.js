@@ -1,11 +1,13 @@
 import express from "express";
-import path from "path";
-
-import __dirname from "./dirname.js";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import logger from "morgan";
 import { getAllHistory, getSongById, getSongByArtist } from "./models/app.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // import {
 //   routeAll,

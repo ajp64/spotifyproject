@@ -5,7 +5,7 @@
  */
 
 import debugLib from "debug";
-import http from "http";
+import https from "https";
 
 import app from "../app.js";
 
@@ -22,7 +22,7 @@ app.set("port", port);
  * Create HTTP server.
  */
 
-const server = http.createServer(app);
+const server = https.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.

@@ -1,6 +1,6 @@
+import { getAllHistory, getSongById, getSongByArtist } from "../models/app.js";
 import express from "express";
 const router = express.Router();
-import { getAllHistory, getSongById, getSongByArtist } from "../models/app.js";
 
 /* GET users listing. */
 

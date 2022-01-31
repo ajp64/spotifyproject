@@ -6,4 +6,5 @@ export const creds = {
   database: process.env.DB_NAME,
   port: process.env.DB_PORT,
   password: process.env.DB_PASS,
+  string: process.env.DB_STRING,
 };

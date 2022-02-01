@@ -16,11 +16,16 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 
 /** DO NOT CHANGE THIS ROUTE - it serves our front-end */
-app.get("/", function (req, res, next) {
-  res.render("index", { title: "Books" });
+
+// Have Node serve the files for our built React app
+app.use(express.static(path.resolve(__dirname, "./client/build")));
+
+// Handle GET requests to /api route
+app.get("/api", (req, res) => {
+  res.json({ message: "Hello from server!" });
 });
 
 app.get("/all", async (req, res) => {
@@ -50,6 +55,11 @@ app.use(function (req, res, next) {
 app.use(function (err, req, res, next) {
   console.error(err.stack);
   res.status(500).json(err);
+});
+
+// All other GET requests not handled before will return our React app
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 
 export default app;

@@ -23,7 +23,8 @@
     "start": "node -r dotenv/config ./bin/www.js",
     "db:createhistory": "node ./db/scripts/history/createTable.js",
     "db:seedhistory": "node ./db/scripts/history/seedTable.js",
-    "dev": "nodemon -r dotenv/config ./bin/www.js"
+    "dev": "nodemon -r dotenv/config ./bin/www.js",
+    "build": "cd client && npm install && npm run build"
   },
   "devDependencies": {
     "install": "^0.13.0",

@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect } from "react";
 
 function App() {
+  async function loadData() {
+    const response = await fetch(
+      "https://my-spotify-2021.herokuapp.com/artist?name=emperor"
+    );
+    const data = response.json();
+    console.log(data);
+  }
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header">Spotify 2021</header>
     </div>
   );
 }

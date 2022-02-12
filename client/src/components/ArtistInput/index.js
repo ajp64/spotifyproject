@@ -2,18 +2,15 @@ import { useFetch } from "../../hooks/useFetch";
 import { useState, useEffect } from "react";
 import css from "./index.module.css";
 
+// a function to use in filter, which removes duplicates from the list of artists you can select from
+function onlyUnique(value, index, self) {
+  return index === self.findIndex((t) => t.artist === value.artist);
+}
+
 export function ArtistInput({ handleArtist }) {
   const [artistList, setList] = useState([]);
   let url = "https://my-spotify-2021.herokuapp.com/all";
   const { data } = useFetch(url);
-
-  // a function to use in filter, which removes duplicates from the list of artists you can select from
-  function onlyUnique(value, index, self) {
-    return (
-      index ===
-      self.findIndex((t) => t.artist === value.artist && t.name === value.name)
-    );
-  }
 
   // function to sort list alphabetically by artist
   function sortArtist(a, b) {

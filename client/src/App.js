@@ -1,4 +1,4 @@
-import "./App.css";
+import css from "./App.module.css";
 import { useState } from "react";
 import { Songs } from "./components/Songs";
 import { ArtistInput } from "./components/ArtistInput";
@@ -12,9 +12,9 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">Spotify 2021</header>
-      <ArtistInput handleArtist={handleArtist} />
+    <div>
+      <header className={css.appHeader}>The Music of Antony's 2021</header>
+      <ArtistInput className={css.app} handleArtist={handleArtist} />
       <Songs artist={artist} />
     </div>
   );

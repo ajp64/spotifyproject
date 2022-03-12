@@ -1,5 +1,6 @@
 import { useFetch } from "../../hooks/useFetch";
 import { useState, useEffect } from "react";
+import { Spotifyfetch } from "../Spotifyfetch";
 import css from "./index.module.css";
 
 // a function to use in filter, which removes duplicates from the list of artists you can select from
@@ -7,10 +8,13 @@ function onlyUnique(value, index, self) {
   return index === self.findIndex((t) => t.artist === value.artist);
 }
 
-export function ArtistInput({ handleArtist }) {
+export function ArtistInput({ handleArtist, artist }) {
   const [artistList, setList] = useState([]);
   let url = "https://my-spotify-2021.herokuapp.com/all";
   const { data } = useFetch(url);
+  if (data) {
+    console.log(data);
+  }
 
   // function to sort list alphabetically by artist
   function sortArtist(a, b) {
@@ -49,11 +53,13 @@ export function ArtistInput({ handleArtist }) {
     );
   } else {
     return (
-      <input
-        list="browsers"
-        onChange={(e) => handleArtist(e.target.value)}
-        placeholder={`Enter an artist!`}
-      />
+      <>
+        <input
+          list="browsers"
+          onUpdate={(e) => handleArtist(e.target.value)}
+          placeholder={`Enter an artist!`}
+        />
+      </>
     );
   }
 }

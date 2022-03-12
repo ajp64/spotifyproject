@@ -4,8 +4,6 @@ See the app here: https://my-spotify-2021.herokuapp.com/
 
 Enter or select from the drop down an aritst, to see which songs I listened to, and how many times!
 
-## Documentation
-
 ### Development
 
 One of my goals for this project was to get more experience using a Node.js/Postgres Backend. The app was created and deployed with:

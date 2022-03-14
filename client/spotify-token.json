@@ -1,8 +1,0 @@
-{
-  "access_token": "BQCil2cdlqeE4v04d41tfKe9ElQxRGHSFdFSCxaBFgRXNosYjseRs_s7DPZDASZcmtHDNiu-x7dJRm152o_AprCNR_3VmkVB33XbbTnkTLL9TawL3WAPB5I9jL8U2get3uj5e538ZsquxFG5uXs",
-  "token_type": "Bearer",
-  "expires_in": 3600,
-  "refresh_token": "AQAv7UWz1ohlnOfwKHkJIZDEWwR291aEQQzYBHe-JxSRNb3nrSADL6C1ccUK4q2Z5vEeAuLVZOYrpvxp4OR8c2r_acrT0bxc9VdaIN_myigZKlGHJtTnOFct2B_sFBah6TM",
-  "scope": "user-read-email",
-  "date_obtained": "Mon, 14 Mar 2022 22:18:27 GMT"
-}

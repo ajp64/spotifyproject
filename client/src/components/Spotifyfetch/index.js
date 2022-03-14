@@ -1,14 +1,40 @@
 import { useFetch } from "../../hooks/useFetch";
+import "dotenv/config";
 import { useState, useEffect } from "react";
 import css from "./spotify.module.css";
+import base64 from "base-64";
 
-//REMOVE BEFORE PUSH
-const accessToken =
-  "BQAQ6qpaodPpffVv20u-QyG11QhqN-fYxCKRp7CJ_HgXsIc5eS0eglWFT6Wcc2OpCm02osYUqtRA-dxROCYT_OHGVbIZuEMxmOSq3xCzXKlj5fOHpEftZy8AOQtDiPAY597pOubDV-U";
+let url = "https://accounts.spotify.com/api/token";
+let username = process.env.REACT_APP_CLIENT_ID;
+let password = process.env.REACT_APP_CLIENT_SECRET;
+
+//let headers = new Headers();
+
+//headers.append('Content-Type', 'text/json');
+const header = {
+  Authorization: "Basic " + base64.encode(username + ":" + password),
+  "Content-Type": "application/x-www-form-urlencoded",
+};
 
 export function Spotifyfetch({ artist, data }) {
   const [artistInfo, setInfo] = useState(null);
   const [artistArray, setArray] = useState([]);
+  const [accessToken, setToken] = useState(null);
+
+  async function authGet() {
+    const authdata = await fetch(url, {
+      method: "POST",
+      headers: header,
+      body: "grant_type=client_credentials",
+    });
+    const auth = await authdata.json();
+    console.log(auth);
+    setToken(auth.access_token);
+  }
+
+  useEffect(() => {
+    authGet();
+  }, []);
 
   //test code for spotify
   async function spotFetch() {
@@ -46,7 +72,12 @@ export function Spotifyfetch({ artist, data }) {
     return (
       <>
         <h1>{artistInfo["name"]}</h1>
-        <h2>{`Genres: ${artistInfo["genres"][0]} , ${artistInfo["genres"][1]} , ${artistInfo["genres"][2]}`}</h2>
+        <h2>
+          Genres:&nbsp;
+          {artistInfo["genres"].map((genre) => {
+            return `${genre}, `;
+          })}
+        </h2>
         <img
           className={css.artistpic}
           src={artistArray[1]["url"]}

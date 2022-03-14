@@ -14,7 +14,11 @@ function App() {
   return (
     <div>
       <header className={css.appHeader}>The Music of Antony's 2021</header>
-      <ArtistInput className={css.app} handleArtist={handleArtist} />
+      <ArtistInput
+        className={css.app}
+        handleArtist={handleArtist}
+        artist={artist}
+      />
       <Songs artist={artist} />
     </div>
   );

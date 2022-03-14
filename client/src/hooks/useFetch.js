@@ -6,7 +6,7 @@ export function useFetch(url) {
   async function loadData() {
     const response = await fetch(url);
     setData(await response.json());
-    console.log(data);
+    // console.log(data);
   }
 
   useEffect(() => {

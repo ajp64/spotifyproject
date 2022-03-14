@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
+import { Spotifyfetch } from "../Spotifyfetch";
 
 function onlyUnique(value, index, self) {
   return index === self.findIndex((t) => t.track === value.track);
@@ -8,11 +9,16 @@ function onlyUnique(value, index, self) {
 export function Songs({ artist }) {
   const [songs, setSongs] = useState([]);
   const [plays, setPlays] = useState([]);
+  const [totalPlays, setTotal] = useState();
   const url = `https://my-spotify-2021.herokuapp.com/artist?name=${artist}`;
   const { data } = useFetch(url);
+  if (data) {
+    console.log(`Logging songs data`, data.payload);
+    let playCount = data.payload.length;
+  }
 
   useEffect(() => {
-    if (data) {
+    if (data && data.payload.length > 0) {
       let filteredSongs = data.payload.filter(onlyUnique);
       let countedNames = data.payload.reduce(function (allNames, name) {
         if (name.track in allNames) {
@@ -32,14 +38,15 @@ export function Songs({ artist }) {
       });
       setSongs(filteredSongs);
       setPlays([...playsArray]);
+      setTotal(data.payload.length);
     }
   }, [data]);
 
-  if (data) {
+  if (songs) {
     return (
       <>
-        <h1>{artist}</h1>
-        <h2>{songs.length ? `Total plays: ${data.payload.length}` : ""}</h2>
+        <Spotifyfetch artist={artist} data={data} />
+        <h2>{songs.length ? `Total plays: ${totalPlays}` : ""}</h2>
         {plays.map((item, i) => {
           return (
             <h3 key={i}>

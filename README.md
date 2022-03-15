@@ -2,7 +2,7 @@
 
 See the app here: https://my-spotify-2021.herokuapp.com/
 
-Enter or select from the drop down an aritst, to see which songs I listened to, and how many times!
+Enter or select from the drop down an artist, to see which songs I listened to, and how many times!
 
 ### Development
 

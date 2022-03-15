@@ -19,4 +19,6 @@ I populated the backend with data I requested from spotify, which the user can t
 
 Currently, the app sucessfully fetches data based on the user entry to show my listens for each artist in 2021. I am currently implementing a feature to use the Spotify API to provide information about and image of the artist, when entered by the user.
 
+15/03/2022 - The app is now connected to the Spotify API, and retrieves pictures and info about artists as well. Next up, making it look good. 
+
 

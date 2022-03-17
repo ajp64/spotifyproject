@@ -45,7 +45,7 @@ export function ArtistInput({ handleArtist, artist }) {
           className={css.artistInput}
           list="browsers"
           onKeyDown={(e) => handleArtist(e)}
-          placeholder={`Search or choose an artist!`}
+          placeholder={`Search or choose an artist...`}
           onClick={(e) => handleInputClear(e)}
         />
         <datalist id="browsers">

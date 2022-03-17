@@ -49,7 +49,9 @@ export function Songs({ artist }) {
 
   useEffect(() => {
     const countMap = plays.map(([name, count]) => ({ name, count }));
-    setCount(countMap.slice(0, 10));
+    if (plays.length > 0) {
+      setCount(countMap.slice(0, 10));
+    }
   }, [plays, data]);
 
   if (songs) {
@@ -57,12 +59,14 @@ export function Songs({ artist }) {
       <>
         <Spotifyfetch artist={artist} data={data} />
         <h2>{songs.length ? `Total plays: ${totalPlays}` : ""}</h2>
-        {songs && (
+        {counted ? (
           <h2>
             {counted.length === 1
               ? `The only song I listened to for ${artist}:`
               : `My ${counted.length} most played tracks for ${artist}:`}
           </h2>
+        ) : (
+          <></>
         )}
         {/* {plays.map((item, i) => {
           return (

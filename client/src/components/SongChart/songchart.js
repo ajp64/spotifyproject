@@ -1,17 +1,4 @@
-import {
-  ResponsiveContainer,
-  BarChart,
-  XAxis,
-  Tooltip,
-  CartesianGrid,
-  Line,
-  YAxis,
-  Text,
-  Cell,
-  Label,
-  Bar,
-  LabelList,
-} from "recharts";
+import { ResponsiveContainer, BarChart, XAxis, YAxis, Bar } from "recharts";
 import css from "./songchart.module.css";
 
 export const SimpleBarChart = ({ songdata, artist }) => {

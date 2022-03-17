@@ -2,6 +2,7 @@ import { useFetch } from "../../hooks/useFetch";
 import { useState, useEffect } from "react";
 import css from "./spotify.module.css";
 import base64 from "base-64";
+import FadeIn from "react-fade-in";
 
 let url = "https://accounts.spotify.com/api/token";
 let username = process.env.REACT_APP_CLIENT_ID;
@@ -69,7 +70,7 @@ export function Spotifyfetch({ artist, data }) {
 
   if (artistArray[0] && artistInfo) {
     return (
-      <>
+      <FadeIn>
         <h1>{artistInfo["name"]}</h1>
         <h2>
           Genres:&nbsp;
@@ -82,7 +83,7 @@ export function Spotifyfetch({ artist, data }) {
           src={artistArray[1]["url"]}
           alt={artist}
         />
-      </>
+      </FadeIn>
     );
   } else {
     return <></>;

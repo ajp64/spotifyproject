@@ -1,6 +1,5 @@
 import { useFetch } from "../../hooks/useFetch";
 import { useState, useEffect } from "react";
-import { Spotifyfetch } from "../Spotifyfetch";
 import css from "./index.module.css";
 
 // a function to use in filter, which removes duplicates from the list of artists you can select from
@@ -35,14 +34,19 @@ export function ArtistInput({ handleArtist, artist }) {
     }
   }, [data]);
 
+  function handleInputClear(e) {
+    e.target.value = "";
+  }
+
   if (artistList) {
     return (
       <>
         <input
           className={css.artistInput}
           list="browsers"
-          onChange={(e) => handleArtist(e.target.value)}
-          placeholder={`Search or choose an artist!`}
+          onKeyDown={(e) => handleArtist(e)}
+          placeholder={`Search or choose an artist...`}
+          onClick={(e) => handleInputClear(e)}
         />
         <datalist id="browsers">
           {artistList.map((item, index) => {

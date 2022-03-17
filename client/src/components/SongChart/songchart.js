@@ -8,104 +8,40 @@ import {
   YAxis,
   Text,
   Cell,
+  Label,
   Bar,
+  LabelList,
 } from "recharts";
-import { useMemo, useState, useEffect } from "react";
+import css from "./songchart.module.css";
 
-import "./styles.css";
-
-const blues = [
-  ["#457AA6"],
-  ["#457AA6", "#E3EBF2"],
-  ["#264F73", "#457AA6", "#E3EBF2"],
-  ["#264F73", "#457AA6", "#A2BBD2", "#E3EBF2"],
-  ["#1A334A", "#264F73", "#457AA6", "#A2BBD2", "#E3EBF2"],
-];
-
-const getColor = (length, index) => {
-  if (length <= blues.length) {
-    return blues[length - 1][index];
-  }
-
-  return blues[blues.length - 1][index % blues.length];
-};
-
-const YAxisLeftTick = ({ y, payload: { value } }) => {
-  return (
-    <Text x={0} y={y} textAnchor="start" verticalAnchor="middle" scaleToFit>
-      {value}
-    </Text>
-  );
-};
-
-let ctx;
-
-const measureText14HelveticaNeue = (text) => {
-  if (!ctx) {
-    ctx = document.createElement("canvas").getContext("2d");
-    ctx.font = "14px 'Helvetica Neue";
-  }
-
-  return ctx.measureText(text).width;
-};
-
-const BAR_AXIS_SPACE = 10;
-
-export const SimpleBarChart = ({ songdata, yKey, xKey }) => {
-  const maxTextWidth = useMemo(
-    () =>
-      songdata.reduce((acc, cur) => {
-        const value = cur[yKey];
-        const width = measureText14HelveticaNeue(value.toLocaleString());
-        if (width > acc) {
-          return width;
-        }
-        return acc;
-      }, 0),
-    [songdata, yKey]
-  );
-
+export const SimpleBarChart = ({ songdata, artist }) => {
   if (songdata) {
     return (
       <ResponsiveContainer
-        width={"100%"}
+        width={"65%"}
         height={50 * songdata.length}
         debounce={50}
+        className={css.graphlabels}
       >
         <BarChart
-          songdata={songdata}
+          width={600}
+          height={600}
+          data={songdata}
+          margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
           layout="vertical"
-          margin={{ left: 10, right: maxTextWidth + (BAR_AXIS_SPACE - 8) }}
         >
-          <XAxis hide axisLine={false} type="number" />
+          <Bar
+            dataKey="count"
+            fill="black"
+            label={{ fill: "red", fontSize: 30 }}
+          ></Bar>
           <YAxis
-            yAxisId={0}
-            songdataKey={xKey}
             type="category"
-            axisLine={false}
-            tickLine={false}
-            tick={YAxisLeftTick}
+            width={150}
+            padding={{ left: 20 }}
+            dataKey="name"
           />
-          <YAxis
-            orientation="right"
-            yAxisId={1}
-            songdataKey={yKey}
-            type="category"
-            axisLine={false}
-            tickLine={false}
-            tickFormatter={(value) => value.toLocaleString()}
-            mirror
-            tick={{
-              transform: `translate(${maxTextWidth + BAR_AXIS_SPACE}, 0)`,
-            }}
-          />
-          <Bar songdataKey={yKey} minPointSize={2} barSize={32}>
-            {songdata.map((d, idx) => {
-              return (
-                <Cell key={d[xKey]} fill={getColor(songdata.length, idx)} />
-              );
-            })}
-          </Bar>
+          <XAxis type="number" hide></XAxis>
         </BarChart>
       </ResponsiveContainer>
     );

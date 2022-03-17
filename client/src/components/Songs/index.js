@@ -41,7 +41,7 @@ export function Songs({ artist }) {
         return b[1] - a[1];
       });
       setSongs(filteredSongs);
-      setPlays([...playsArray]);
+      setPlays([...playsArray.slice(0, 10)]);
 
       setTotal(data.payload.length);
     }
@@ -49,7 +49,7 @@ export function Songs({ artist }) {
 
   useEffect(() => {
     const countMap = plays.map(([name, count]) => ({ name, count }));
-    setCount(countMap);
+    setCount(countMap.slice(0, 10));
   }, [plays, data]);
 
   if (songs) {
@@ -57,7 +57,14 @@ export function Songs({ artist }) {
       <>
         <Spotifyfetch artist={artist} data={data} />
         <h2>{songs.length ? `Total plays: ${totalPlays}` : ""}</h2>
-        {plays.map((item, i) => {
+        {songs && (
+          <h2>
+            {counted.length === 1
+              ? `The only song I listened to for ${artist}:`
+              : `My ${counted.length} most played tracks for ${artist}:`}
+          </h2>
+        )}
+        {/* {plays.map((item, i) => {
           return (
             <h3 key={i}>
               {item[1] === 1
@@ -65,9 +72,9 @@ export function Songs({ artist }) {
                 : `${item[0]} : ${item[1]} plays`}
             </h3>
           );
-        })}
+        })} code used for text list of play count */}
         {counted ? (
-          <SimpleBarChart songdata={counted} xKey="name" yKey="count" />
+          <SimpleBarChart songdata={counted} artist={artist} />
         ) : (
           <></>
         )}

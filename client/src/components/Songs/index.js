@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import { Spotifyfetch } from "../Spotifyfetch";
 import { SimpleBarChart } from "../SongChart/songchart";
+import FadeIn from "react-fade-in";
 
 function onlyUnique(value, index, self) {
   return index === self.findIndex((t) => t.track === value.track);
@@ -56,7 +57,7 @@ export function Songs({ artist }) {
 
   if (songs) {
     return (
-      <>
+      <FadeIn>
         <Spotifyfetch artist={artist} data={data} />
         <h2>{songs.length ? `Total plays: ${totalPlays}` : ""}</h2>
         {counted ? (
@@ -82,7 +83,7 @@ export function Songs({ artist }) {
         ) : (
           <></>
         )}
-      </>
+      </FadeIn>
     );
   } else {
     return null;

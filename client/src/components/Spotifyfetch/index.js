@@ -1,4 +1,3 @@
-import { useFetch } from "../../hooks/useFetch";
 import { useState, useEffect } from "react";
 import css from "./spotify.module.css";
 import base64 from "base-64";

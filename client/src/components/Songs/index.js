@@ -57,7 +57,7 @@ export function Songs({ artist }) {
 
   if (songs) {
     return (
-      <FadeIn>
+      <>
         <Spotifyfetch artist={artist} data={data} />
         <h2>{songs.length ? `Total plays: ${totalPlays}` : ""}</h2>
         {counted ? (
@@ -83,7 +83,7 @@ export function Songs({ artist }) {
         ) : (
           <></>
         )}
-      </FadeIn>
+      </>
     );
   } else {
     return null;

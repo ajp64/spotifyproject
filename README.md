@@ -21,4 +21,6 @@ Currently, the app sucessfully fetches data based on the user entry to show my l
 
 15/03/2022 - The app is now connected to the Spotify API, and retrieves pictures and info about artists as well. Next up, making it look good!
 
+17/03/2022 - Sucessfully implemented a bar chart using Recharts. Still need to work on design and UI and some issues with functionality. 
+
 

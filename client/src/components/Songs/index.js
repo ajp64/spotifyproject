@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import { Spotifyfetch } from "../Spotifyfetch";
 import { SimpleBarChart } from "../SongChart/songchart";
-import FadeIn from "react-fade-in";
 
 function onlyUnique(value, index, self) {
   return index === self.findIndex((t) => t.track === value.track);
@@ -19,7 +18,6 @@ export function Songs({ artist }) {
     console.log(`Logging songs data`, data.payload);
     console.log(`Logging plays`, plays, counted);
     console.log(`logging count`, counted);
-    let playCount = data.payload.length;
   }
 
   useEffect(() => {

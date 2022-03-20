@@ -21,6 +21,7 @@ export function Spotifyfetch({ artist, data }) {
   const [accessToken, setToken] = useState(null);
 
   async function authGet() {
+    console.log(process.env.REACT_APP_CLIENT_ID);
     const authdata = await fetch(url, {
       method: "POST",
       headers: header,

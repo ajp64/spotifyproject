@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import { Spotifyfetch } from "../Spotifyfetch";
 import { SimpleBarChart } from "../SongChart/songchart";
+import FadeIn from "react-fade-in";
 
 function onlyUnique(value, index, self) {
   return index === self.findIndex((t) => t.track === value.track);
@@ -14,11 +15,11 @@ export function Songs({ artist }) {
   const [counted, setCount] = useState(null);
   const url = `https://my-spotify-2021.herokuapp.com/artist?name=${artist}`;
   const { data } = useFetch(url);
-  if (data) {
-    console.log(`Logging songs data`, data.payload);
-    console.log(`Logging plays`, plays, counted);
-    console.log(`logging count`, counted);
-  }
+  // if (data) {
+  //   console.log(`Logging songs data`, data.payload);
+  //   console.log(`Logging plays`, plays, counted);
+  //   console.log(`logging count`, counted);
+  // }
 
   useEffect(() => {
     if (data && data.payload.length > 0) {
@@ -55,7 +56,7 @@ export function Songs({ artist }) {
 
   if (songs) {
     return (
-      <>
+      <FadeIn>
         <Spotifyfetch artist={artist} data={data} />
         <h2>{songs.length ? `Total plays: ${totalPlays}` : ""}</h2>
         {counted ? (
@@ -81,7 +82,7 @@ export function Songs({ artist }) {
         ) : (
           <></>
         )}
-      </>
+      </FadeIn>
     );
   } else {
     return null;

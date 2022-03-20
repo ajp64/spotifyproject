@@ -1,6 +1,7 @@
 import { useFetch } from "../../hooks/useFetch";
 import { useState, useEffect } from "react";
 import css from "./index.module.css";
+import FadeIn from "react-fade-in";
 
 // a function to use in filter, which removes duplicates from the list of artists you can select from
 function onlyUnique(value, index, self) {
@@ -11,9 +12,9 @@ export function ArtistInput({ handleArtist, artist }) {
   const [artistList, setList] = useState([]);
   let url = "https://my-spotify-2021.herokuapp.com/all";
   const { data } = useFetch(url);
-  if (data) {
-    console.log(data);
-  }
+  // if (data) {
+  //   console.log(data);
+  // }
 
   // function to sort list alphabetically by artist
   function sortArtist(a, b) {
@@ -40,7 +41,7 @@ export function ArtistInput({ handleArtist, artist }) {
 
   if (artistList) {
     return (
-      <>
+      <FadeIn>
         <input
           className={css.artistInput}
           list="browsers"
@@ -53,17 +54,17 @@ export function ArtistInput({ handleArtist, artist }) {
             return <option value={item.artist} key={index} />;
           })}
         </datalist>
-      </>
+      </FadeIn>
     );
   } else {
     return (
-      <>
+      <FadeIn>
         <input
           list="browsers"
           onUpdate={(e) => handleArtist(e.target.value)}
           placeholder={`Enter an artist!`}
         />
-      </>
+      </FadeIn>
     );
   }
 }

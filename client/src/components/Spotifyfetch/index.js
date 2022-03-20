@@ -21,14 +21,12 @@ export function Spotifyfetch({ artist, data }) {
   const [accessToken, setToken] = useState(null);
 
   async function authGet() {
-    console.log(process.env.REACT_APP_CLIENT_ID);
     const authdata = await fetch(url, {
       method: "POST",
       headers: header,
       body: "grant_type=client_credentials",
     });
     const auth = await authdata.json();
-    console.log(auth);
     setToken(auth.access_token);
   }
 
@@ -44,7 +42,6 @@ export function Spotifyfetch({ artist, data }) {
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );
       const spotData = await res.json();
-      console.log(spotData);
 
       if (spotData) {
         setArray(spotData["artists"]["items"][0]["images"]);
@@ -61,16 +58,14 @@ export function Spotifyfetch({ artist, data }) {
       }
     }
 
-    if (artist) {
-      //   setArray(artistInfo["items"]);
-      console.log(artistArray);
-      //   console.log(spotData["items"]);
-    }
+    // if (artist) {
+    //   console.log(artistArray);
+    // }
   }, [data, artist]);
 
   if (artistArray[0] && artistInfo) {
     return (
-      <>
+      <FadeIn>
         <h1>{artistInfo["name"]}</h1>
         <h2>
           Genres:&nbsp;
@@ -83,7 +78,7 @@ export function Spotifyfetch({ artist, data }) {
           src={artistArray[1]["url"]}
           alt={artist}
         />
-      </>
+      </FadeIn>
     );
   } else {
     return <></>;

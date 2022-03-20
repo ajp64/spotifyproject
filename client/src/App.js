@@ -10,7 +10,6 @@ function App() {
   function handleArtist(e) {
     if (e.key === "Enter") {
       setArtist(e.target.value);
-      console.log(artist);
     }
   }
 

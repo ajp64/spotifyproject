@@ -1,4 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap");
+
 .artistpic {
   width: 50%;
   height: 50%;
+}
+
+.genres {
+  list-style-type: none;
+  color: rgb(0, 0, 0);
+  font-size: 1.5em;
+  font-family: "Cinzel", serif;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.genretitle {
+  list-style-type: none;
+  color: rgb(0, 0, 0);
+  font-size: 2em;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.artisttitle {
+  list-style-type: none;
+  color: rgb(0, 0, 0);
+  font-size: 3em;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
 }

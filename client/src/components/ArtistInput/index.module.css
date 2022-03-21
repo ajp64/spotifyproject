@@ -1,17 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Staatliches&display=swap");
 
 .artistInput {
+  margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
   height: 80px;
-  width: 50%;
+  width: 65%;
   color: rgb(0, 0, 0);
   font-size: 3em;
   font-family: "Poppins", sans-serif;
   padding: 20px;
+  text-align: center;
 }
 
 ::placeholder {
   color: rgb(0, 0, 0);
   font-size: 1em;
   font-family: "Poppins", sans-serif;
+  text-align: center;
 }

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import css from "./spotify.module.css";
 import base64 from "base-64";
 import FadeIn from "react-fade-in";
+import { AspectRatio } from "@chakra-ui/react";
 
 let url = "https://accounts.spotify.com/api/token";
 let username = process.env.REACT_APP_CLIENT_ID;
@@ -66,21 +67,29 @@ export function Spotifyfetch({ artist, data }) {
   if (artistArray[0] && artistInfo) {
     return (
       <FadeIn>
-        <h1>{artistInfo["name"]}</h1>
-        <h2>
-          Genres:&nbsp;
-          {artistInfo["genres"].map((genre) => {
-            return `${genre}, `;
+        <h1 className={css.artisttitle}>{artistInfo["name"]}</h1>
+        <AspectRatio ratio={4 / 4}>
+          <img
+            className={css.artistpic}
+            src={artistArray[1]["url"]}
+            alt={artist}
+          />
+        </AspectRatio>
+        <br></br>
+        <h2 className={css.genretitle}>Genres:</h2>
+        <br></br>
+        <ul className={css.genres}>
+          {artistInfo["genres"].map((genre, index) => {
+            return <li key={index}>{genre}</li>;
           })}
-        </h2>
-        <img
-          className={css.artistpic}
-          src={artistArray[1]["url"]}
-          alt={artist}
-        />
+        </ul>
       </FadeIn>
     );
   } else {
-    return <></>;
+    return (
+      <h1
+        className={css.genretitle}
+      >{`Spotify seems to having trouble with ${artist} at the moment... try another band for now!`}</h1>
+    );
   }
 }

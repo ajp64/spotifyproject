@@ -10,8 +10,14 @@
 }
 
 .app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  margin: auto;
+}
+
+.action {
+  list-style-type: none;
+  color: rgb(0, 0, 0);
+  font-size: 2em;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
 }

@@ -21,14 +21,19 @@ export const SimpleBarChart = ({ songdata, artist }) => {
           >
             <Bar
               dataKey="count"
-              fill="black"
-              label={{ fill: "red", fontSize: 30 }}
+              fill="#011627"
+              label={{ fill: "#2ec4be", fontSize: 30 }}
             ></Bar>
             <YAxis
               type="category"
               width={150}
               padding={{ left: 20 }}
               dataKey="name"
+              style={{
+                fontSize: "1rem",
+                fontFamily: "Poppins, serif",
+                color: "rgb(0, 0, 0)",
+              }}
             />
             <XAxis type="number" hide></XAxis>
           </BarChart>

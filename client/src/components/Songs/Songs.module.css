@@ -1,0 +1,15 @@
+.songinfo {
+  list-style-type: none;
+  color: rgb(0, 0, 0);
+  font-size: 2em;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.graphinfo {
+  list-style-type: none;
+  color: rgb(0, 0, 0);
+  font-size: 1.5em;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+}

@@ -3,7 +3,8 @@ import { useFetch } from "../../hooks/useFetch";
 import { Spotifyfetch } from "../Spotifyfetch";
 import { SimpleBarChart } from "../SongChart/songchart";
 import FadeIn from "react-fade-in";
-import { Container, Flex, Box, Spacer } from "@chakra-ui/react";
+import { Flex, Box, Spacer } from "@chakra-ui/react";
+import css from "./Songs.module.css";
 
 function onlyUnique(value, index, self) {
   return index === self.findIndex((t) => t.track === value.track);
@@ -70,9 +71,12 @@ export function Songs({ artist }) {
           </Box>
           <Spacer />
           <Box flexShrink={0} w="50%">
-            <h2>{songs.length ? `Total plays: ${totalPlays}` : ""}</h2>
+            <h2 className={css.songinfo}>
+              {songs.length ? `Total plays: ${totalPlays}` : ""}
+            </h2>
+            <br></br>
             {counted ? (
-              <h2>
+              <h2 className={css.graphinfo}>
                 {counted.length === 1
                   ? `The only song I listened to for ${artist}:`
                   : `My ${counted.length} most played tracks for ${artist}:`}
@@ -99,6 +103,10 @@ export function Songs({ artist }) {
       </FadeIn>
     );
   } else {
-    return <h1>{`Is that an artist? I guess I didn't listen to them...`}</h1>;
+    return (
+      <h1
+        className={css.songinfo}
+      >{`Is that an artist? I guess I didn't listen to them...`}</h1>
+    );
   }
 }

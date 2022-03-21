@@ -67,7 +67,7 @@ export function Spotifyfetch({ artist, data }) {
   if (artistArray[0] && artistInfo) {
     return (
       <FadeIn>
-        <h1>{artistInfo["name"]}</h1>
+        <h1 className={css.artisttitle}>{artistInfo["name"]}</h1>
         <AspectRatio ratio={4 / 4}>
           <img
             className={css.artistpic}
@@ -75,15 +75,21 @@ export function Spotifyfetch({ artist, data }) {
             alt={artist}
           />
         </AspectRatio>
-        <h2>
-          Genres:&nbsp;
-          {artistInfo["genres"].map((genre) => {
-            return `${genre}, `;
+        <br></br>
+        <h2 className={css.genretitle}>Genres:</h2>
+        <br></br>
+        <ul className={css.genres}>
+          {artistInfo["genres"].map((genre, index) => {
+            return <li key={index}>{genre}</li>;
           })}
-        </h2>
+        </ul>
       </FadeIn>
     );
   } else {
-    return <></>;
+    return (
+      <h1
+        className={css.genretitle}
+      >{`Spotify seems to having trouble with ${artist} at the moment... try another band for now!`}</h1>
+    );
   }
 }

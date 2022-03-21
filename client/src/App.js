@@ -37,7 +37,7 @@ function App() {
             artist={artist}
           />
           <Container maxW="container.xl">
-            <h1>
+            <h1 className={css.action}>
               Pick an artist above and hit enter to find out my listening
               habits!
             </h1>

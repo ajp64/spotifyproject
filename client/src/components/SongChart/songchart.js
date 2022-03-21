@@ -7,8 +7,8 @@ export const SimpleBarChart = ({ songdata, artist }) => {
     return (
       <FadeIn>
         <ResponsiveContainer
-          width={"65%"}
-          height={50 * songdata.length}
+          width={"100%"}
+          height={60 * songdata.length}
           debounce={50}
           className={css.graphlabels}
         >

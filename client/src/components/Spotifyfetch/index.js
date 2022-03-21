@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import css from "./spotify.module.css";
 import base64 from "base-64";
 import FadeIn from "react-fade-in";
+import { AspectRatio } from "@chakra-ui/react";
 
 let url = "https://accounts.spotify.com/api/token";
 let username = process.env.REACT_APP_CLIENT_ID;
@@ -67,17 +68,19 @@ export function Spotifyfetch({ artist, data }) {
     return (
       <FadeIn>
         <h1>{artistInfo["name"]}</h1>
+        <AspectRatio ratio={4 / 4}>
+          <img
+            className={css.artistpic}
+            src={artistArray[1]["url"]}
+            alt={artist}
+          />
+        </AspectRatio>
         <h2>
           Genres:&nbsp;
           {artistInfo["genres"].map((genre) => {
             return `${genre}, `;
           })}
         </h2>
-        <img
-          className={css.artistpic}
-          src={artistArray[1]["url"]}
-          alt={artist}
-        />
       </FadeIn>
     );
   } else {

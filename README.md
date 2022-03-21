@@ -23,4 +23,6 @@ Currently, the app sucessfully fetches data based on the user entry to show my l
 
 17/03/2022 - Sucessfully implemented a bar chart using Recharts. Still need to work on design and UI and some issues with functionality. 
 
+21/03/2022 - Used Chakra UI to add styling and formatting. Next step is to make the site responsive, and to resolve some issues around the spotify fetch not working after a band that doesn't exist in the database is entered. 
+
 

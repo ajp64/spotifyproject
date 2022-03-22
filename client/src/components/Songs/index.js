@@ -60,7 +60,11 @@ export function Songs({ artist }) {
   if (songs.length > 0) {
     return (
       <FadeIn>
-        <Flex justifyContent="space-around">
+        <Flex
+          p={{ base: 4, md: 1 }}
+          w="100%"
+          direction={{ base: "column", md: "row" }}
+        >
           <Box flexShrink={0} w="30%">
             <Spotifyfetch
               artist={artist}

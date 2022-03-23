@@ -65,7 +65,7 @@ export function Songs({ artist }) {
           w="100%"
           direction={{ base: "column", md: "row" }}
         >
-          <Box flexShrink={0} w="30%">
+          <Box flexShrink={0} w={[300, 400, 400]}>
             <Spotifyfetch
               artist={artist}
               data={data}
@@ -74,7 +74,7 @@ export function Songs({ artist }) {
             />
           </Box>
           <Spacer />
-          <Box flexShrink={0} w="50%">
+          <Box flexShrink={0} w={[300, 400, 700]}>
             <h2 className={css.songinfo}>
               {songs.length ? `Total plays: ${totalPlays}` : ""}
             </h2>

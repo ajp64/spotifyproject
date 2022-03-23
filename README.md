@@ -21,8 +21,8 @@ Currently, the app sucessfully fetches data based on the user entry to show my l
 
 15/03/2022 - The app is now connected to the Spotify API, and retrieves pictures and info about artists as well. Next up, making it look good!
 
-17/03/2022 - Sucessfully implemented a bar chart using Recharts. Still need to work on design and UI and some issues with functionality. 
+17/03/2022 - Sucessfully implemented a bar chart using Recharts. Still need to work on design and UI and some issues with functionality.
 
-21/03/2022 - Used Chakra UI to add styling and formatting. Next step is to make the site responsive, and to resolve some issues around the spotify fetch not working after a band that doesn't exist in the database is entered. 
+21/03/2022 - Used Chakra UI to add styling and formatting. Next step is to make the site responsive, and to resolve some issues around the spotify fetch not working after a band that doesn't exist in the database is entered.
 
-
+23/03/2022 - I've used Chakra to make the site responsive, so it looks clean on desktop and mobile. Once I can resolve a few lingering issues around the fetch, the main feature should be complete.

@@ -60,8 +60,12 @@ export function Songs({ artist }) {
   if (songs.length > 0) {
     return (
       <FadeIn>
-        <Flex justifyContent="space-around">
-          <Box flexShrink={0} w="30%">
+        <Flex
+          p={{ base: 4, md: 1 }}
+          w="100%"
+          direction={{ base: "column", md: "row" }}
+        >
+          <Box flexShrink={0} w={[300, 400, 400]}>
             <Spotifyfetch
               artist={artist}
               data={data}
@@ -70,7 +74,7 @@ export function Songs({ artist }) {
             />
           </Box>
           <Spacer />
-          <Box flexShrink={0} w="50%">
+          <Box flexShrink={0} w={[300, 400, 700]}>
             <h2 className={css.songinfo}>
               {songs.length ? `Total plays: ${totalPlays}` : ""}
             </h2>

@@ -8,7 +8,7 @@
   height: 80px;
   width: 65%;
   color: rgb(0, 0, 0);
-  font-size: 3em;
+  font-size: 3vw;
   font-family: "Poppins", sans-serif;
   padding: 20px;
   text-align: center;
@@ -16,7 +16,7 @@
 
 ::placeholder {
   color: rgb(0, 0, 0);
-  font-size: 1em;
+  font-size: 3vw;
   font-family: "Poppins", sans-serif;
   text-align: center;
 }

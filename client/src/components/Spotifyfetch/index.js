@@ -1,39 +1,11 @@
 import { useState, useEffect } from "react";
 import css from "./spotify.module.css";
-import base64 from "base-64";
 import FadeIn from "react-fade-in";
 import { AspectRatio } from "@chakra-ui/react";
 
-let url = "https://accounts.spotify.com/api/token";
-let username = process.env.REACT_APP_CLIENT_ID;
-let password = process.env.REACT_APP_CLIENT_SECRET;
-
-//let headers = new Headers();
-
-//headers.append('Content-Type', 'text/json');
-const header = {
-  Authorization: "Basic " + base64.encode(username + ":" + password),
-  "Content-Type": "application/x-www-form-urlencoded",
-};
-
-export function Spotifyfetch({ artist, data }) {
+export function Spotifyfetch({ artist, data, accessToken }) {
   const [artistInfo, setInfo] = useState(null);
   const [artistArray, setArray] = useState([]);
-  const [accessToken, setToken] = useState(null);
-
-  async function authGet() {
-    const authdata = await fetch(url, {
-      method: "POST",
-      headers: header,
-      body: "grant_type=client_credentials",
-    });
-    const auth = await authdata.json();
-    setToken(auth.access_token);
-  }
-
-  useEffect(() => {
-    authGet();
-  }, []);
 
   //test code for spotify
   async function spotFetch() {
@@ -89,7 +61,7 @@ export function Spotifyfetch({ artist, data }) {
     return (
       <h1
         className={css.genretitle}
-      >{`Spotify seems to having trouble with ${artist} at the moment... try another band for now!`}</h1>
+      >{`Spotify seems to having trouble with info about ${artist} at the moment... try another band for now!`}</h1>
     );
   }
 }

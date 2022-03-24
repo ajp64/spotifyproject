@@ -10,7 +10,7 @@ function onlyUnique(value, index, self) {
   return index === self.findIndex((t) => t.track === value.track);
 }
 
-export function Songs({ artist }) {
+export function Songs({ artist, accessToken }) {
   const [songs, setSongs] = useState([]);
   const [plays, setPlays] = useState([]);
   const [totalPlays, setTotal] = useState();
@@ -71,6 +71,7 @@ export function Songs({ artist }) {
               data={data}
               borderRadius="lg"
               width={{ md: 40 }}
+              accessToken={accessToken}
             />
           </Box>
           <Spacer />

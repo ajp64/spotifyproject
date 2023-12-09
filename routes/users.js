@@ -25,7 +25,7 @@ export const routeByArtist = router.get(
   async function (req, res, next) {
     console.log(req.query.name);
     const name = req.query.name;
-    const history = await getSongByArtist(name.toLowerCase());
+    const history = await getSongByArtist(name.toLocaleLowerCase);
     res.json({ success: "true", payload: history });
   }
 );

@@ -1,11 +1,11 @@
 import pg from "pg";
 import { creds } from "../config.js";
 import "dotenv/config";
-const connectionString = process.env.DATABASE_URL;
+const connectionString = process.env.DB_STRING;
 
 const pool = new pg.Pool({
   connectionString,
-  ssl: { rejectUnauthorized: false },
+  ssl: false,
 });
 
 export function query(text, params) {

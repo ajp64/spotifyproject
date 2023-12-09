@@ -29,4 +29,4 @@ Currently, the app sucessfully fetches data based on the user entry to show my l
 
 24/03/2022 - By moving the authorisation process higher up the app and passing the accesstoken down, I've solved the issue around the spotify API fetch not working in certain circumstances. The main feature of the app is now working as planned!
 
-9/12/2023 - The hosting has been updated. The front end is now hosted in Netlify, with the back end in Render. 
+09/12/2023 - The hosting has been updated. The front end is now hosted in Netlify, with the back end in Render. 

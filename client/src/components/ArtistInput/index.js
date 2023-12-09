@@ -10,7 +10,7 @@ function onlyUnique(value, index, self) {
 
 export function ArtistInput({ handleArtist, artist }) {
   const [artistList, setList] = useState([]);
-  let url = "https://my-spotify-2021.herokuapp.com/all";
+  let url = "https://my-spotify-summary.onrender.com//all";
   const { data } = useFetch(url);
   // if (data) {
   //   console.log(data);

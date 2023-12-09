@@ -15,7 +15,7 @@ export function Songs({ artist, accessToken }) {
   const [plays, setPlays] = useState([]);
   const [totalPlays, setTotal] = useState();
   const [counted, setCount] = useState(null);
-  const url = `https://my-spotify-2021.herokuapp.com/artist?name=${artist}`;
+  const url = `https://my-spotify-summary.onrender.com/artist?name=${artist}`;
   const { data } = useFetch(url);
   // if (data) {
   //   console.log(`Logging songs data`, data.payload);

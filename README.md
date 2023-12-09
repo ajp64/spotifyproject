@@ -1,6 +1,6 @@
 # My Spotify 2021 - An app for displaying my music listening from 2021
 
-See the app here: https://my-spotify-2021.herokuapp.com/
+See the app here: https://my-spotify-2021.netlify.app/
 
 Enter or select from the drop down an artist, to see which songs I listened to, and how many times!
 
@@ -11,7 +11,7 @@ One of my goals for this project was to get more experience using a Node.js/Post
 - React
 - Node.js
 - Postgres
-- Heroku
+- Heroku (Since updated to Netlify and Render)
 
 I populated the backend with data I requested from spotify, which the user can the access through the React build front end.
 
@@ -28,3 +28,5 @@ Currently, the app sucessfully fetches data based on the user entry to show my l
 23/03/2022 - I've used Chakra to make the site responsive, so it looks clean on desktop and mobile. Once I can resolve a few lingering issues around the fetch, the main feature should be complete.
 
 24/03/2022 - By moving the authorisation process higher up the app and passing the accesstoken down, I've solved the issue around the spotify API fetch not working in certain circumstances. The main feature of the app is now working as planned!
+
+9/12/2023 - The hosting has been updated. The front end is now hosted in Netlify, with the back end in Render. 

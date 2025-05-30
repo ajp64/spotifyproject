@@ -29,10 +29,6 @@ export function ArtistInput({ handleArtist, artist }) {
 
   // data is filtered to unique items, then ordered alphabetically
   useEffect(() => {
-    while (!data) {
-      console.log("waiting for data");
-    }
-
     if (data) {
       let filteredArray = data.payload.filter(onlyUnique);
       setList(filteredArray.sort(sortArtist));

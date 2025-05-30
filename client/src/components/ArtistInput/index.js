@@ -44,12 +44,11 @@ export function ArtistInput({ handleArtist, artist }) {
   if (artistList) {
     return (
       <FadeIn>
-        loading ? ( <div className="spinner">Loading...</div> ) :
         <input
           className={css.artistInput}
           list="browsers"
           onChange={(e) => handleArtist(e)}
-          placeholder={`Search or choose an artist...`}
+          placeholder={loading ? `Loading...` : `Search or choose an artist...`}
           onClick={(e) => handleInputClear(e)}
         />
         <datalist id="browsers">

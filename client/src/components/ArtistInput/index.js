@@ -10,6 +10,7 @@ function onlyUnique(value, index, self) {
 
 export function ArtistInput({ handleArtist, artist }) {
   const [artistList, setList] = useState([]);
+  const [loading, setLoading] = useState(true);
   let url = "https://my-spotify-summary.onrender.com/all";
   const { data } = useFetch(url);
   // if (data) {
@@ -32,6 +33,7 @@ export function ArtistInput({ handleArtist, artist }) {
     if (data) {
       let filteredArray = data.payload.filter(onlyUnique);
       setList(filteredArray.sort(sortArtist));
+      setLoading(false);
     }
   }, [data]);
 
@@ -42,6 +44,7 @@ export function ArtistInput({ handleArtist, artist }) {
   if (artistList) {
     return (
       <FadeIn>
+        loading ? ( <div className="spinner">Loading...</div> ) :
         <input
           className={css.artistInput}
           list="browsers"

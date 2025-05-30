@@ -35,9 +35,12 @@ function App() {
   }, []);
 
   function handleArtist(e) {
-    if (e.key === "Enter") {
+    //if (e.key === "Enter") {
+    setTimeout(() => {
       setArtist(e.target.value);
-    }
+    }, 1500);
+
+    //}
   }
 
   return (

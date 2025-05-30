@@ -29,6 +29,10 @@ export function ArtistInput({ handleArtist, artist }) {
 
   // data is filtered to unique items, then ordered alphabetically
   useEffect(() => {
+    while (!data) {
+      console.log("waiting for data");
+    }
+
     if (data) {
       let filteredArray = data.payload.filter(onlyUnique);
       setList(filteredArray.sort(sortArtist));
@@ -45,7 +49,7 @@ export function ArtistInput({ handleArtist, artist }) {
         <input
           className={css.artistInput}
           list="browsers"
-          onKeyDown={(e) => handleArtist(e)}
+          onChange={(e) => handleArtist(e)}
           placeholder={`Search or choose an artist...`}
           onClick={(e) => handleInputClear(e)}
         />

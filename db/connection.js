@@ -1,5 +1,4 @@
 import pg from "pg";
-import { creds } from "../config.js";
 import "dotenv/config";
 const connectionString = process.env.DB_STRING;
 

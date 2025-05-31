@@ -27,5 +27,4 @@ export async function spotAuth() {
     authOptions
   );
   const data = await res.json();
-  console.log(data);
 }

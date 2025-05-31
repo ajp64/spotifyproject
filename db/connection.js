@@ -3,8 +3,8 @@ import "dotenv/config";
 const connectionString = process.env.DB_STRING;
 
 const pool = new pg.Pool({
-  connectionString,
-  ssl: false,
+  connectionString: process.env.DB_STRING,
+  ssl: true,
 });
 
 export function query(text, params) {

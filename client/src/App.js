@@ -34,13 +34,8 @@ function App() {
     authGet();
   }, []);
 
-  function handleArtist(e) {
-    //if (e.key === "Enter") {
-    setTimeout(() => {
-      setArtist(e.target.value);
-    }, 1500);
-
-    //}
+  function handleArtist(artist) {
+    setArtist(artist);
   }
 
   return (
@@ -67,8 +62,8 @@ function App() {
           />
           <Container maxW="container.xl">
             <h1 className={css.action}>
-              Pick an artist above and hit enter to find out my listening
-              habits!
+              Search for an artist, and pick one from the list to see my
+              listening history!
             </h1>
           </Container>
         </FadeIn>

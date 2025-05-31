@@ -13,7 +13,6 @@ function App() {
     });
     // const apiData = await response.json();
     setData(await response.json());
-    console.log(data);
   };
 
   useEffect(() => {

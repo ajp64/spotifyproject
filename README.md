@@ -2,7 +2,9 @@
 
 See the app here: https://my-spotify-2021.netlify.app/
 
-Enter or select from the drop down an artist, to see which songs I listened to, and how many times!
+- **Note:** If the app hasn't been run in a while, it may take 30 seconds or so to load.
+
+Search for an artist and select them from the dropdown, to see which songs I listened to, and how many times!
 
 ### Development
 
@@ -29,4 +31,4 @@ Currently, the app sucessfully fetches data based on the user entry to show my l
 
 24/03/2022 - By moving the authorisation process higher up the app and passing the accesstoken down, I've solved the issue around the spotify API fetch not working in certain circumstances. The main feature of the app is now working as planned!
 
-09/12/2023 - The hosting has been updated. The front end is now hosted in Netlify, with the back end in Render. 
+09/12/2023 - The hosting has been updated. The front end is now hosted in Netlify, with the back end in Render.
